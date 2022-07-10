@@ -4,7 +4,7 @@ import face_recognition as fr #It uses HOG method to detect face (dlib library h
 import os
 from datetime import datetime
 
-path = 'F:\PycharmProjects\SagarFacerecog\Images_Attendance' #includes images of modi,rahul gandhi,kejriwal
+path = 'F:\PycharmProjects\Attendance\Images_Attendance' #includes images of modi,rahul gandhi,kejriwal
 images = [] #Includes images
 classNames = [] #Includes file names
 myList = os.listdir(path)
