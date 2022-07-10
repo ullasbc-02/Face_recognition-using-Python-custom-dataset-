@@ -4,7 +4,7 @@ import face_recognition as fr #It uses HOG method to detect face (dlib library h
 import os
 from datetime import datetime
 
-path = 'F:\PycharmProjects\Face Recognition\Images_Attendance' #includes images of modi,rahul gandhi,kejriwal
+path = 'F:\PycharmProjects\SagarFacerecog\Images_Attendance' #includes images of modi,rahul gandhi,kejriwal
 images = [] #Includes images
 classNames = [] #Includes file names
 myList = os.listdir(path)
@@ -28,7 +28,7 @@ encodeListKnown = findEncodings(images)
 print("Encoding completed")
 
 def markAttendance(name):
-    with open('Attendance.csv','r+') as f:
+    with open('Attendance.csv','a+') as f:
         myDataList = f.readlines()
         nameList = []
         for line in myDataList:
@@ -38,6 +38,19 @@ def markAttendance(name):
          now = datetime.now()
          dtString = now.strftime('%H:%M:%S')
          f.writelines(f'\n{name},{dtString}')
+
+    # already_in_file = set()
+    # with open('Attendance.csv', "r") as g:  # just read
+    #     for line in g:
+    #         already_in_file.add(line.split(",")[0])
+    #
+    # # process your current entry:
+    # if name not in already_in_file:
+    #     with open('Attendance.csv', "a") as g:  # append
+    #         now = datetime.now()
+    #         dtString = now.strftime('%H:%M:%S')
+    #         g.writelines(f'\n{name},{dtString}')
+
 
 
 cap = cv.VideoCapture(0)
